@@ -36,11 +36,13 @@
           <div id="place-body-1" class="hidden" aria-labelledby="place-heading-1">
             <fieldset class="px-4 my-2" *ngIf="places.length">
               <legend class="my-4 font-bold">Места:</legend>
-
-              <div class="flex items-center mb-4" *ngFor="let place of places">
+              <input type="text" class="rounded w-full mt-2 mb-3 border-solid border-2 border-black p-2"  [(ngModel)]="search_word">
+              <section *ngFor="let place of places">
+                <div class="flex items-center mb-4" *ngIf="search_word.length == 0 || place.title_ru.toLowerCase().search(search_word.toLowerCase()) != -1 || place.title_kz.toLowerCase().search(search_word.toLowerCase()) != -1">
                 <input (change)="togglePlaces(place.id)" [checked]="activePlaces.indexOf(place.id) != -1" id="place-{{place.id}}" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >
                 <label for="place-{{place.id}}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{place.title_ru}}</label>
-              </div>
+                </div>
+              </section>
 
             </fieldset>
           </div>
@@ -137,6 +139,11 @@
         <p>Возраст: <b>{{activeMarker.age}} в годах</b></p>
         <p>Диаметр: <b>{{activeMarker.diameter}} см.</b></p>
         <p>Высота: <b>{{activeMarker.height}} м.</b></p>
+      </div>
+      <div class="flex w-full px-4 text-right justify-end my-2">
+        <a target="_blank" href="{{baseApi + '/make-report/' + activeMarker.id.toString()}}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+          Сообщить об ошибке
+        </a>
       </div>
     </div>
     </section>

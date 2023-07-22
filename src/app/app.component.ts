@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   //Interactive array
   activeAreas:number[] = [];
   activePlaces:number[] = [];
+  searchPlaces:number[] = [];
   activeFilters:{[key: string]: number[]} = {"event":[],"status":[],"category":[],"sanitary":[],"breed":[],"type":[]}
   actualLayer = [];
   event_filter:number[] = [];
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
   breed_filter:number[] = [];
   type_filter:number[] = [];
   search_polygon:string = "";
+  search_word = "";
   treeIcon = icon({
     iconUrl:"https://dpbh.ucla.edu/wp-content/uploads/2021/10/tree_icon.png",
     iconSize: [25, 25],
@@ -50,10 +52,11 @@ export class AppComponent implements OnInit {
   });
   selectedMarker:any = null;
   baseApiImage = environment.baseUrlImage;
+  baseApi = environment.baseUrl;
   options = {
     preferCanvas:true,
     layers: [
-      tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',  {subdomains:['mt0','mt1','mt2','mt3'], maxZoom: 21, maxNativeZoom: 20, attribution: '...' })
+      tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',  {subdomains:['mt0','mt1','mt2','mt3'], maxZoom: 21, maxNativeZoom: 20, attribution: '...' })
     ],
     zoom: 12,
     center: latLng(42.315524, 69.586943),
@@ -98,9 +101,6 @@ export class AppComponent implements OnInit {
       this.makers = [];
       this.Layer = Array.from(this.actualLayer);
     }
-
-
-
   }
   initializeSystemData(){
     this.systemService.getAll().subscribe(
@@ -128,6 +128,8 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
+
 
   initializeMarker(){
     if(this.activePlaces.length){
