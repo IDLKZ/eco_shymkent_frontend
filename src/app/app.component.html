@@ -1,4 +1,159 @@
-<div id="drawer-navigation" class="z-50 fixed top-0 right-0 z-40 w-full md:w-4/12 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+
+
+<div id="accordionExample" class="block md:hidden">
+  <div
+    class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+    <h2 class="mb-0" id="headingTwo">
+      <button
+        class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        type="button"
+        data-te-collapse-init
+        data-te-collapse-collapsed
+        data-te-target="#collapseTwo"
+        aria-expanded="false"
+        aria-controls="collapseTwo">
+        Фильтры
+        <span
+          class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <div
+      id="collapseTwo"
+      class="!visible hidden"
+      data-te-collapse-item
+      aria-labelledby="headingTwo"
+      data-te-parent="#accordionExample">
+    <!--      Child 1 -->
+      <div class="px-5 py-4">
+        <div
+          class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+          <h2 class="mb-0" id="headingArea">
+            <button
+              class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+              type="button"
+              data-te-collapse-init
+              data-te-collapse-collapsed
+              data-te-target="#collapseArea"
+              aria-expanded="false"
+              aria-controls="collapseArea">
+              Районы
+              <span
+                class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+            </button>
+          </h2>
+          <div
+            id="collapseArea"
+            class="!visible hidden"
+            data-te-collapse-item
+            aria-labelledby="headingArea"
+            data-te-parent="#collapseTwo">
+            <div class="px-5 py-4">
+              <section *ngIf="areas">
+              <fieldset class="px-4 my-2" *ngIf="areas.length">
+                <legend class="my-4 font-bold">Районы:</legend>
+
+                <div class="flex items-center mb-4" *ngFor="let area of areas">
+                  <input (change)="toggleArea(area.id)" [checked]="activeAreas.indexOf(area.id) != -1" id="area-{{area.id}}" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-green-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >
+                  <label for="area-{{area.id}}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{area.title_ru}}</label>
+                </div>
+              </fieldset>
+              </section>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <!--      Child 1 -->
+      <!--      Child 2 -->
+      <div class="px-5 py-4">
+        <div
+          class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+          <h2 class="mb-0" id="headingPlace">
+            <button
+              class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+              type="button"
+              data-te-collapse-init
+              data-te-collapse-collapsed
+              data-te-target="#collapsePlace"
+              aria-expanded="false"
+              aria-controls="collapsePlace">
+              Места ({{places !=  null ? places.length : 0}})
+              <span
+                class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+            </button>
+          </h2>
+          <div
+            id="collapsePlace"
+            class="!visible hidden"
+            data-te-collapse-item
+            aria-labelledby="headingPlace"
+            data-te-parent="#collapseTwo">
+            <div class="px-5 py-4">
+              <section *ngIf="places">
+                <fieldset class="px-4 my-2" *ngIf="places.length">
+                  <legend class="my-4 font-bold">Места:</legend>
+                  <input type="text" class="rounded w-full mt-2 mb-3 border-solid border-2 border-black p-2"  [(ngModel)]="search_word">
+                  <section *ngFor="let place of places">
+                    <div class="flex items-center mb-4" *ngIf="search_word.length == 0 || place.title_ru.toLowerCase().search(search_word.toLowerCase()) != -1 || place.title_kz.toLowerCase().search(search_word.toLowerCase()) != -1">
+                      <input (change)="togglePlaces(place.id)" [checked]="activePlaces.indexOf(place.id) != -1" id="place-{{place.id}}" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >
+                      <label for="place-{{place.id}}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{place.title_ru}}</label>
+                    </div>
+                  </section>
+
+                </fieldset>
+              </section>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--      Child 2 -->
+    </div>
+  </div>
+</div>
+
+
+
+<div id="drawer-navigation" class="hidden md:block z-50 fixed top-0 right-0 z-40 w-full md:w-4/12 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
   <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Фильтры</h5>
   <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -57,10 +212,10 @@
           </h2>
           <div id="filter-body-1" class="hidden min-h-screen" aria-labelledby="filter-heading-1">
             <section *ngIf="SystemData != null">
-              <fieldset class="px-4 my-2" *ngIf="SystemData.category">
-                <legend class="my-4 font-bold">Категория посадки:</legend>
-                <ng-selectize [(ngModel)]="category_filter" class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.category" [placeholder]="'Категории'"></ng-selectize>
-              </fieldset>
+<!--              <fieldset class="px-4 my-2" *ngIf="SystemData.category">-->
+<!--                <legend class="my-4 font-bold">Категория посадки:</legend>-->
+<!--                <ng-selectize [(ngModel)]="category_filter" class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.category" [placeholder]="'Категории'"></ng-selectize>-->
+<!--              </fieldset>-->
               <fieldset class="px-4 my-2" *ngIf="SystemData.sanitary">
                 <legend class="my-4 font-bold">Состояние насаждений:</legend>
                 <ng-selectize [(ngModel)]="sanitary_filter"  class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.sanitary" [placeholder]="'Типы состояний'"></ng-selectize>
@@ -73,15 +228,15 @@
                 <legend class="my-4 font-bold">Тип насаждения:</legend>
                 <ng-selectize [(ngModel)]="type_filter"  class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.type" [placeholder]="'Тип насаждения'"></ng-selectize>
               </fieldset>
-              <fieldset class="px-4 my-2" *ngIf="SystemData.status">
-                <legend class="my-4 font-bold">Статус посадки:</legend>
-                <ng-selectize [(ngModel)]="status_filter"  class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.status" [placeholder]="'Типы статусов'"></ng-selectize>
-              </fieldset>
-              <fieldset class="px-4 my-2" *ngIf="SystemData.event">
-                <legend class="my-4 font-bold">Мероприятие:</legend>
-                <ng-selectize [(ngModel)]="event_filter"  class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.event" [placeholder]="'Типы Мероприятий'"></ng-selectize>
+<!--              <fieldset class="px-4 my-2" *ngIf="SystemData.status">-->
+<!--                <legend class="my-4 font-bold">Статус посадки:</legend>-->
+<!--                <ng-selectize [(ngModel)]="status_filter"  class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.status" [placeholder]="'Типы статусов'"></ng-selectize>-->
+<!--              </fieldset>-->
+<!--              <fieldset class="px-4 my-2" *ngIf="SystemData.event">-->
+<!--                <legend class="my-4 font-bold">Мероприятие:</legend>-->
+<!--                <ng-selectize [(ngModel)]="event_filter"  class="my-4 w-4/12" [config]="MULTI_SELECT_CONFIG" [options]="SystemData.event" [placeholder]="'Типы Мероприятий'"></ng-selectize>-->
 
-              </fieldset>
+<!--              </fieldset>-->
 
 
               <button (click)="toggleFilters()" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Использовать фильтры</button>
@@ -95,11 +250,10 @@
   </div>
 </div>
 
-
       <div class="relative">
-        <button class="absolute right-1 z-20 top-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+        <a href="#" class="hidden md:block absolute right-1 z-20 top-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
           Фильтры
-        </button>
+        </a>
         <div
           id="map"
           class="z-10"

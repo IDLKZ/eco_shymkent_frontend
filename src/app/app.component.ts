@@ -10,6 +10,10 @@ import {SystemDataService} from "../common/services/system-data.service";
 import {SystemData} from "../common/models/SystemData";
 import {NgxSmartModalService} from "ngx-smart-modal";
 import {environment} from "../environments/environment";
+import {
+  Collapse,
+  initTE,
+} from "tw-elements";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -75,7 +79,7 @@ export class AppComponent implements OnInit {
   });
   baseBreedsImage = environment.baseBreedsImage;
   ngOnInit(): void {
-
+    initTE({ Collapse });
   }
   constructor(public ngxSmartModalService: NgxSmartModalService,private areaService:AreaService,private placeService:PlaceService,private markerService:MarkerService,private systemService:SystemDataService) {
     this.initializeSystemData();
