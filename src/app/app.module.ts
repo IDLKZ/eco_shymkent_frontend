@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgSelectizeModule} from "ng-selectize";
 import {FormsModule} from "@angular/forms";
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { SidebarjsModule } from 'ng-sidebarjs';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +19,8 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
     HttpClientModule,
     NgSelectizeModule,
     FormsModule,
-    NgxSmartModalModule.forRoot()
+    NgxSmartModalModule.forRoot(),
+    SidebarjsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
