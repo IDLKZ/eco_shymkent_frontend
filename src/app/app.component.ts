@@ -60,7 +60,8 @@ export class AppComponent implements OnInit {
   options = {
     preferCanvas:true,
     layers: [
-      tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',  {subdomains:['mt0','mt1','mt2','mt3'], maxZoom: 21, maxNativeZoom: 20, attribution: '...' })
+      // tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',  {subdomains:['mt0','mt1','mt2','mt3'], maxZoom: 21, maxNativeZoom: 20, attribution: '...' })
+      tileLayer('http://tile4.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=4',  {subdomains:['mt0','mt1','mt2','mt3'], maxZoom: 18, maxNativeZoom: 18, attribution: '...' })
     ],
     zoom: 12,
     center: latLng(42.315524, 69.586943),
